@@ -1,0 +1,21 @@
+services:
+  web:
+    build: ./services/web
+    command: python manage.py run -h 0.0.0.0
+    volumes:
+      - ./services/web/:/usr/src/app
+    ports:
+      - 5001:5000
+    env_file:
+      - ./.env.dev
+  db:
+    image: postgres:14
+    volumes:
+      - postgres_data:/varlib/postgresql/data
+    environment:
+      - POSTGRES_USER=change_me
+      - POSTGRES_PASSWORD=change_me
+      - POSTGRES_DB=change_me
+
+volumes:
+  postgres_data:
