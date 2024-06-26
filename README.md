@@ -14,12 +14,9 @@ This is an excellent (free) resource that I urge you to work through if the buil
  - Gunicorn - WSGI HTTP application server
  - Nginx - Reverse proxy, load balancer, and static Web server
 
-### Included PyPI packages (requirements.txt)
+### Included PyPI packages
 
- - Flask==3.0.3
- - Flask-SQLAlchemy==3.1.1
- - gunicorn==22.0.0
- - psycopg2-binary==2.9.9
+ - [requirements.txt](https://github.com/sedexdev/flask-stack-template/blob/main/services/web/requirements.txt)
 
 # Usage
 
