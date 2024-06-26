@@ -22,9 +22,8 @@ This is an excellent (free) resource that I urge you to work through if the buil
 
 ### .env
 
-The provided <code>.env</code> files contain test placeholder values and should be updated for your deployments.
-
-They should be uncommented in [.gitignore](https://github.com/sedexdev/flask-stack-template/blob/main/.gitignore) so they are kept out of any public repos.
+ - The provided <code>.env</code> files contain test placeholder values and should be updated for your deployments.
+ - They should be uncommented in [.gitignore](https://github.com/sedexdev/flask-stack-template/blob/main/.gitignore) so they are kept out of any public repos.
 
 ### Docker Compose
 
