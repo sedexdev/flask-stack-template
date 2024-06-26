@@ -11,7 +11,7 @@ This is an excellent (free) resource that I urge you to work through if the buil
  - Flask - lightweight framework for small and complex Web apps
  - PostgreSQL - open source SQL database
  - Docker - popular container runtime for container management
- - Gunicorn - WSGI HTTP application server for Web apps
+ - Gunicorn - WSGI HTTP application server
  - Nginx - Reverse proxy, load balancer, and static Web server
 
 ### Included PyPI packages (requirements.txt)
