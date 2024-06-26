@@ -13,9 +13,9 @@ services:
     volumes:
       - postgres_data:/varlib/postgresql/data
     environment:
-      - POSTGRES_USER=change_me
-      - POSTGRES_PASSWORD=change_me
-      - POSTGRES_DB=change_me
+      - POSTGRES_USER=test_user
+      - POSTGRES_PASSWORD=test_password123
+      - POSTGRES_DB=test_db_dev
 
 volumes:
   postgres_data:
