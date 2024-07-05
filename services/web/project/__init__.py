@@ -2,6 +2,7 @@ from flask import Flask
 
 from project.connectors import db, limiter, login_manager
 from project.core.views import core_blueprint
+from project.errors.handlers import error_blueprint
 
 
 # app config
@@ -10,6 +11,7 @@ app.config.from_object("project.config.Config")
 
 # blueprints
 app.register_blueprint(core_blueprint)
+app.register_blueprint(error_blueprint)
 
 # connectors
 db.init_app(app)
