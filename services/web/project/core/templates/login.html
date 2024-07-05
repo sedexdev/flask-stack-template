@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Login Page</h1>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.username.label }}<br>
+        {{ form.username(size=32) }}<br>
+        {{ form.username.errors }}
+    </p>
+    <p>
+        {{ form.password.label }}<br>
+        {{ form.password(size=32) }}<br>
+        {{ form.password.errors }}
+    </p>
+    <p>{{ form.remember }} Remember me</p>
+    <p><input type="submit" value="Login"></p>
+</form>
+<a href="{{ url_for('core.signup') }}">Sign up</a>
+
+{% for message in get_flashed_messages() %}
+    <div>{{ message }}</div>
+{% endfor %}
+
+{% endblock %}

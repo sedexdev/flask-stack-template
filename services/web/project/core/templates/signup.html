@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Signup Page</h1>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.email.label }}<br>
+        {{ form.email }}<br>
+        {{ form.email.errors }}
+    </p>
+    <p>
+        {{ form.username.label }}<br>
+        {{ form.username }}<br>
+        {{ form.username.errors }}
+    </p>
+    <p>
+        {{ form.password.label }}<br>
+        {{ form.password }}<br>
+        {{ form.password.errors }}
+    </p>
+    <p>
+        {{ form.confirm_password.label }}<br>
+        {{ form.confirm_password }}<br>
+        {{ form.confirm_password.errors }}
+    </p>
+    <p><input type="submit" value="Sign Up"></p>
+</form>
+<a href="{{ url_for('core.login') }}">Login</a>
+
+{% for message in get_flashed_messages() %}
+    <div>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+{% endfor %}
+
+{% endblock %}
