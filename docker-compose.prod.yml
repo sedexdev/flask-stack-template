@@ -4,9 +4,6 @@ services:
       context: ./services/web
       dockerfile: Dockerfile.prod    
     command: gunicorn --bind 0.0.0.0:5000 manage:app
-    volumes:
-      - static_volume:/home/app/web/project/static
-      - media_volume:/home/app/web/project/media
     expose:
       - 5000
     env_file:
