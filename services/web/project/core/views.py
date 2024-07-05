@@ -5,7 +5,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from project.core.forms.form import LoginForm, SignUpForm
-from project.connectors import db
+from project.connectors import db, limiter
 from project.models import User
 
 core_blueprint = Blueprint(
@@ -21,6 +21,7 @@ def landing():
 
 
 @core_blueprint.route("/login", methods=['GET', 'POST'])
+@limiter.limit("5 per minute")
 def login():
     form = LoginForm()
     if form.validate_on_submit():

@@ -14,8 +14,9 @@ RUN apt update && apt install netcat -y
 # copy over project files
 COPY . .
 
-# install dependencies
-RUN pip install --upgrade pip && pip install -r requirements.txt
+# install dependencies and audit for vulnerabilities
+RUN pip install --upgrade pip && pip install -r requirements.txt && pip install pip-audit
+RUN pip-audit
 
 # Entrypoint script
 ENTRYPOINT [ "/usr/src/app/entrypoint.sh" ]
