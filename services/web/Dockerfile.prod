@@ -47,7 +47,10 @@ RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
 # install dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends netcat
+RUN apt update \
+    && apt install curl netcat -y \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash \
+    && apt install nodejs -y
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
 RUN pip install --upgrade pip
@@ -65,6 +68,11 @@ RUN chown -R app:app $APP_HOME
 
 # change to the app user
 USER app
+
+# initialiase package.json and Tailwind CSS
+RUN npm init -y \
+    && npm install autoprefixer postcss tailwindcss --save-dev \
+    && npx tailwindcss -i ./project/static/css/input.css -o ./project/static/css/output.css --minify
 
 # run entrypoint.prod.sh
 ENTRYPOINT ["/home/app/web/entrypoint.prod.sh"]

@@ -15,4 +15,3 @@ class Config:
     REMEMBER_COOKIE_HTTPONLY = True
     REMEMBER_COOKIE_DURATION = timedelta(days=14)
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16 MB
-

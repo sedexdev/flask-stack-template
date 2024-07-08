@@ -1,4 +1,5 @@
 from flask.cli import FlaskGroup
+from werkzeug.security import generate_password_hash
 
 from project import app, db
 from project.models import User
@@ -15,7 +16,13 @@ def create_db():
 
 @cli.command("seed_db")
 def seed_db():
-    db.session.add(User(email="admin@test.co.uk"))
+    hashed_password = generate_password_hash("somePassword123", method='pbkdf2:sha256')
+    new_user = User(
+        email="admin@application.test.uk",
+        username="app_admin",
+        password=hashed_password
+    )
+    db.session.add(new_user)
     db.session.commit()
 
 
